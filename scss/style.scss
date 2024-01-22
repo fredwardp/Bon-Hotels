@@ -1,0 +1,247 @@
+@use "v";
+@import "mixin";
+
+@font-face {
+  font-family: "ubuntu medium";
+  src: url(../assets/fonts/Ubuntu-Medium.ttf);
+}
+@font-face {
+  font-family: "ubuntu regular";
+  src: url(../assets/fonts/Ubuntu-Regular.ttf);
+}
+@font-face {
+  font-family: "ubuntu light";
+  src: url(../assets/fonts/Ubuntu-Light.ttf);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  :has(:target) {
+    scroll-behavior: smooth;
+    scroll-padding-top: 3rem;
+  }
+}
+
+*,
+::before,
+::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  font-size: 62.5%;
+}
+
+body {
+  font-size: 1.6rem;
+}
+
+img,
+picture,
+svg,
+video {
+  display: block;
+  max-width: 100%;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  text-wrap: balance;
+  font-family: v.$ff_medium;
+  font-weight: 500;
+}
+
+h1 {
+  font-size: 8rem;
+  font-family: v.$ff_regular;
+  color: v.$secondary_color;
+  font-weight: 400;
+  text-align: center;
+}
+
+h2 {
+  font-size: v.$fs_45;
+  color: v.$main_color;
+  text-align: center;
+}
+
+h3 {
+  font-size: v.$fs_40;
+  color: v.$secondary_color;
+}
+
+p,
+a {
+  max-width: 62ch;
+  text-wrap: pretty;
+  font-size: v.$fs_24;
+  font-family: v.$ff_medium;
+  color: v.$main_color;
+}
+
+a {
+  text-decoration: none;
+}
+
+li {
+  list-style: none;
+}
+
+.btn {
+  background-color: v.$btn_color;
+  color: v.$secondary_color;
+  border-radius: 1rem;
+  padding: 2.4rem 5.4rem;
+  display: inline-block;
+}
+
+header {
+  nav {
+    padding-block: 5.1rem 10rem;
+    @include flex_cc;
+    flex-direction: column;
+    gap: 7.6rem;
+    div {
+      display: flex;
+      gap: 5rem;
+    }
+  }
+  section {
+    height: 60vh;
+    min-height: 60rem;
+    background-image: url(../assets/img/hero_image.png);
+    @include classic_bckg;
+    @include flex_cc_col;
+    justify-content: flex-end;
+    padding-bottom: 15vh;
+    h1 {
+      margin-bottom: 1.5rem;
+    }
+    p {
+      margin-bottom: 4.1rem;
+      color: v.$secondary_color;
+    }
+    .btn {
+      padding-inline: 13.3rem;
+    }
+  }
+}
+
+main {
+  padding: 2.6rem 6.2rem 11.8rem 6.2rem;
+  .facility {
+    min-width: 0;
+    h2 {
+      margin-bottom: 4.7rem;
+    }
+    .icons_wrapper {
+      min-width: 0;
+      display: flex;
+      justify-content: center;
+      gap: 8%;
+      margin-bottom: 12.8rem;
+    }
+  }
+  .rooms {
+    h2 {
+      margin-bottom: 3.4rem;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(42rem, 1fr));
+      gap: 4rem;
+      @media only screen and (min-width: 1300px) {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 6rem;
+      }
+      div {
+        @include flex_cc_col;
+        justify-content: flex-end;
+        min-height: 50rem;
+        @include classic_bckg;
+        border-radius: 1rem;
+        h3 {
+          margin-bottom: 1.9rem;
+        }
+        .btn {
+          margin-bottom: 5.8rem;
+        }
+      }
+      div:first-of-type {
+        background-image: url(../assets/img/standard_twin_room.png);
+      }
+      div:nth-of-type(2) {
+        background-image: url(../assets/img/standard_room.png);
+      }
+      div:nth-of-type(3) {
+        background-image: url(../assets/img/standard_view_room.png);
+      }
+      div:nth-of-type(4) {
+        background-image: url(../assets/img/standard_twin_room.png);
+      }
+      margin-bottom: 15.2rem;
+    }
+  }
+  .book {
+    @include flex_cc_col;
+    h2 {
+      margin-bottom: 3.8rem;
+    }
+    .btn {
+      min-width: 22%;
+      text-align: center;
+    }
+  }
+}
+footer {
+  background-color: #111111;
+  padding: 6.1rem 7rem 16rem 6.1rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(3rem, 1fr));
+  div,
+  form {
+    @include flex_cc_col;
+    align-items: flex-start;
+    p,
+    a {
+      color: v.$secondary_color;
+      font-weight: 400;
+      font-family: "ubuntu regular";
+    }
+  }
+  div:first-of-type {
+    img {
+      margin-bottom: 6.8rem;
+    }
+    p {
+      font-family: "ubuntu medium";
+    }
+    a {
+      font-family: "ubuntu light";
+    }
+  }
+  div:nth-of-type(2) {
+    gap: 2.5rem;
+  }
+  form {
+    color: v.$secondary_color;
+    font-size: v.$fs_24;
+    gap: 2.2rem;
+    width: 100%;
+    input {
+      width: 70%;
+      height: 7.5rem;
+      border-radius: 1rem;
+      padding: 2.5rem;
+      font-size: v.$fs_24;
+      font-family: "ubuntu medium";
+    }
+    input:first-of-type {
+      font-family: "ubuntu light";
+    }
+  }
+}

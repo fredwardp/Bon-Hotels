@@ -1,0 +1,18 @@
+@mixin flex_cc {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin flex_cc_col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin classic_bckg {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
